@@ -5,10 +5,17 @@ import ChatRoomLight from '../assets/images/projects/chat-room-light.jpg';
 import Portfolio from '../assets/images/projects/portfolio.jpg';
 import RizalInfo from '../assets/images/projects/rizal-infographic.jpg';
 import JobConnext from '../assets/images/projects/jobconnext.png';
-import ArduinoBasedQueue from '../assets/images/projects/ardunoBased-queueing.png';
+import ArduinoBasedQueue from '../assets/images/projects/ardunoBased-queueing.jpg';
 
 export default function Projects() {
-    const categories = ['All', 'Web apps', 'UI concepts', 'APIs & backends'];
+    const categories = [
+    'All',
+    'Full-Stack Systems',
+    'Real-Time Apps',
+    'Dashboards & Platforms',
+    'Educational & Info Apps',
+    'Hardware-Integrated'
+    ];
 
     const projects = [
         {

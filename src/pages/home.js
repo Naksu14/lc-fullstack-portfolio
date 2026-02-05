@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { RxArrowRight } from 'react-icons/rx';
 import DownloadButton from '../components/DownloadButton';
@@ -7,20 +7,21 @@ import DownloadButton from '../components/DownloadButton';
 
 export default function Home() {
   const navigate = useNavigate();
+  const reduceMotion = useReducedMotion();
 
   return (
     <motion.section
       className="hero"
-      initial={{ opacity: 0, scale: 0.985, y: 10 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.99, y: -4 }}
-      transition={{ duration: 0.75, ease: 'easeOut' }}
+      initial={reduceMotion ? {} : { opacity: 0, scale: 0.985, y: 10 }}
+      animate={reduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }}
+      exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.99, y: -4 }}
+      transition={reduceMotion ? { duration: 0.2 } : { duration: 0.75, ease: 'easeOut' }}
     >
       <motion.div
         className="hero-inner max-w-6xl mx-auto px-6"
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.12, duration: 0.7, ease: 'easeOut' }}
+        initial={reduceMotion ? {} : { opacity: 0, y: 18 }}
+        animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+        transition={reduceMotion ? { duration: 0.15 } : { delay: 0.12, duration: 0.7, ease: 'easeOut' }}
       >
         <h1 className="hero-title">
           Loel is a <span className="text-highlight">full-stack developer</span> specializing in 

@@ -55,7 +55,10 @@ export default function Contact() {
                     </div>
 
                     <div className="mt-6 space-y-3 text-sm text-slate-300">
-                        <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Other channels</p>
+                        <div className="flex items-center gap-3">
+                            <span className="h-px w-10 bg-gradient-to-r from-slate-500/10 to-slate-400" />
+                            <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Other channels</p>
+                        </div>
                         <div className="space-y-2">
                             
                             <a
@@ -74,7 +77,7 @@ export default function Contact() {
                                 className="flex items-center gap-3 text-slate-300 hover:text-indigo-200 transition-colors"
                             >
                                 <FaLinkedinIn className="h-4 w-4 text-indigo-300" />
-                                <span>/in/loel-campaña-4282b5334</span>
+                                <span>loel-campaña</span>
                             </a>
                             <a
                                 href="https://www.instagram.com/kairos.clm/"
@@ -151,7 +154,7 @@ export default function Contact() {
                             Send message
                         </button>
                         <p className="text-[0.65rem] text-slate-500 text-left pt-1">
-                            This form is for demo purposes — feel free to reach me directly via email for real projects.
+                            Feel free to reach me directly via email for real projects.
                         </p>
                     </form>
                 </motion.div>

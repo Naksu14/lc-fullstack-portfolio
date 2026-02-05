@@ -1,0 +1,56 @@
+/* Glow and subtle grid background */
+.App::before {
+  content: "";
+  position: absolute;
+  right: -10%;
+  bottom: -8%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle at center, rgba(124,58,237,0.28), rgba(99,102,241,0.06) 40%, transparent 60%);
+  filter: blur(60px);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.grid {
+  position: fixed;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(124,58,237,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(124,58,237,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0, 0 0;
+  animation: grid-pan 26s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grid::before,
+.grid::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+}
+
+.grid::before {
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.9) 0px, rgba(124,58,237,0.6) 8px, rgba(99,102,241,0.22) 20px, transparent 48px);
+  filter: blur(6px); mix-blend-mode: screen; opacity: 0.95;
+}
+
+.grid::after {
+  background: radial-gradient(circle at var(--fx,50%) var(--fy,50%), rgba(124,58,237,0.28) 0px, rgba(99,102,241,0.12) 120px, transparent 300px);
+  filter: blur(40px); mix-blend-mode: screen; opacity: 0.95;
+}
+
+/* Reduced / static grid for low-power or touch devices */
+.grid.grid-static { animation: none; }
+.grid.grid-static::before, .grid.grid-static::after { display: none; opacity: 0; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .grid { animation: none; }
+  .grid::before, .grid::after { display: none; opacity: 0; }
+}
+
+@media (pointer: coarse) {
+  .grid { animation: none; }
+  .grid::before, .grid::after { display: none; opacity: 0; }
+}

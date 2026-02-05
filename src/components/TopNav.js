@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { motion, LayoutGroup } from 'framer-motion';
+import { motion, LayoutGroup, useReducedMotion } from 'framer-motion';
 import LCLogo from '../assets/LClogo.png';
 
 export default function TopNav() {
@@ -24,6 +24,7 @@ export default function TopNav() {
     }
     return undefined;
   }, [mobileOpen]);
+  const reduceMotion = useReducedMotion();
 
   return (
     <nav className="top-nav w-full bg-transparent bg-[rgba(0,0,0,0.2)] backdrop-blur-xs border-b border-gray-800/40">
@@ -67,7 +68,7 @@ export default function TopNav() {
         </LayoutGroup>
 
         {/* Mobile hamburger */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center border border-gray-700/50 rounded-md bg-[rgba(255,255,255,0.05)]">
           <button
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
@@ -83,9 +84,9 @@ export default function TopNav() {
       {/* Mobile menu overlay (full-screen) */}
       {mobileOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={reduceMotion ? {} : { opacity: 0 }}
+          animate={reduceMotion ? { opacity: 1 } : { opacity: 1 }}
+          exit={reduceMotion ? {} : { opacity: 0 }}
           className="md:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start"
           onClick={() => setMobileOpen(false)}
         >
@@ -115,7 +116,7 @@ export default function TopNav() {
                   <li key={link.to}>
                     <NavLink to={link.to} end onClick={() => setMobileOpen(false)}>
                       {({ isActive }) => (
-                        <span className={`top-nav-link w-full block text-left px-3 py-3 text-lg font-medium rounded ${isActive ? 'text-purple-200 bg-white/3' : 'text-gray-300 hover:text-purple-200'}`}>
+                        <span className={`top-nav-link w-full block text-left px-3 py-3 text-lg font-medium rounded ${isActive ? 'text-purple-400 bg-white/3' : 'text-gray-300 hover:text-purple-200'}`}>
                           {link.label}
                         </span>
                       )}

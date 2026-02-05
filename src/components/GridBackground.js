@@ -1,9 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function GridBackground() {
   const posRef = useRef({ mx: (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), my: (typeof window !== 'undefined' ? window.innerHeight / 2 : 0), fx: (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), fy: (typeof window !== 'undefined' ? window.innerHeight / 2 : 0), raf: null });
+  const [shouldAnimate, setShouldAnimate] = useState(true);
 
   useEffect(() => {
+    // Disable the expensive background on reduced-motion or touch devices (mobile)
+    if (typeof window === 'undefined') return undefined;
+
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouch = (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || ('ontouchstart' in window);
+
+    if (prefersReduced || isTouch) {
+      setShouldAnimate(false);
+      return undefined;
+    }
+
     const grid = document.querySelector('.grid');
     if (!grid) return undefined;
 
@@ -35,5 +47,6 @@ export default function GridBackground() {
     };
   }, []);
 
-  return <div className="grid" />;
+  // When we shouldn't animate (mobile or reduced-motion), render a static grid with reduced effects
+  return <div className={"grid" + (shouldAnimate ? '' : ' grid-static')} />;
 }
