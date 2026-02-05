@@ -6,6 +6,8 @@ import About from './pages/about';
 import Projects from './pages/projects';
 import Contact from './pages/contact';
 import GridBackground from './components/GridBackground';
+import Chatbot from "./components/chatbot/Chatbot"; 
+
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -24,6 +26,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>
+          <Chatbot/>
         </div>
         <footer className="text-center py-6 text-gray-500 text-sm">
           &copy; {new Date().getFullYear()} Loel Campaña. All rights reserved.

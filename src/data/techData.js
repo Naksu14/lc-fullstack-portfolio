@@ -14,6 +14,7 @@ import {
   SiTailwindcss,
   SiJavascript,
   SiTypescript,
+  SiCplusplus,
   SiNestjs,
   SiMysql,
   SiVercel,
@@ -32,6 +33,7 @@ export const techStack = [
   { name: 'Python', icon: FaPython },
   { name: 'Java', icon: FaJava },
   { name: 'Node.js', icon: FaNodeJs },
+  { name: 'C++', icon: SiCplusplus },
   { name: 'NestJS', icon: SiNestjs },
   { name: 'MySQL', icon: SiMysql },
   { name: 'Git', icon: FaGitAlt },
@@ -51,7 +53,7 @@ export const layers = [
   {
     label: 'Back-end (Application Layer)',
     key: 'back-end',
-    tech: ['PHP', 'Python', 'Java', 'Node.js', 'NestJS', 'REST APIs', 'WebSockets'],
+      tech: ['PHP', 'Python', 'Java', 'C++', 'Node.js', 'NestJS', 'REST APIs', 'WebSockets'],
   },
   {
     label: 'Database Layer',

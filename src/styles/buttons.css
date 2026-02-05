@@ -99,3 +99,41 @@
   margin-left: 8px;
   color: #7c3aed;
 }
+
+/* Simple tooltip for chat toggle (lightweight) */
+.chat-tooltip-container { position: relative; display: inline-block; }
+.chat-tooltip {
+  position: absolute;
+  right: 110%;
+  bottom: 50%;
+  transform: translateY(50%);
+  background: rgba(35, 17, 48, 0.5);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+.chat-tooltip-container:hover .chat-tooltip { opacity: 1; transform: translateY(50%) translateX(-4px); }
+
+/* pointer triangle */
+.chat-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid rgba(10,10,14,0.50);
+}
+
+@media (max-width: 640px) {
+  .chat-tooltip { display: none; }
+}

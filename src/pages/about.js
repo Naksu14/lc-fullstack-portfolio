@@ -6,7 +6,7 @@ import { techStack, layers } from '../data/techData';
 export default function About() {
     return (
         <motion.section
-            className="about-hero flex flex-col justify-center items-center min-h-screen"
+            className="about-hero flex flex-col justify-center items-center min-h-screen px-6"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}

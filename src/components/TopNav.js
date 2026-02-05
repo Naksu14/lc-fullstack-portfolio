@@ -87,14 +87,14 @@ export default function TopNav() {
           initial={reduceMotion ? {} : { opacity: 0 }}
           animate={reduceMotion ? { opacity: 1 } : { opacity: 1 }}
           exit={reduceMotion ? {} : { opacity: 0 }}
-          className="md:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start"
+          className="md:hidden fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm flex items-start"
           onClick={() => setMobileOpen(false)}
         >
           <div
             className="w-full max-w-md bg-[rgba(6,6,10,0.85)] h-full shadow-2xl p-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-6 border-b border-gray-700/40 pb-4">
               <div className="flex items-center gap-3">
                 <img src={LCLogo} alt="logo" className="h-8 w-8" />
                 <div className="text-white font-semibold">Loel's Portfolio</div>

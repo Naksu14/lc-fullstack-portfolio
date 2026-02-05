@@ -17,7 +17,7 @@ export default function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.12, duration: 0.7, ease: 'easeOut' }}
             >
-                    <p className="text-xs tracking-[0.25em] uppercase text-indigo-300">Get in touch</p>
+                    <p className="text-sm tracking-[0.25em] font-semibold uppercase text-indigo-300">Get in touch</p>
                     <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
                         Let&apos;s build something <span className="text-indigo-400">exceptional</span> together.
                     </h1>
