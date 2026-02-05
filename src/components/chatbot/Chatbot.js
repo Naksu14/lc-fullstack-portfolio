@@ -3,12 +3,12 @@ import { sendToGemini } from "./chatbotService";
 import { MessageCircle, Send } from "lucide-react";
 import chatbotLogo from '../../assets/images/me.png';
 
-const faqs = [
-  "What services do you offer?",
-  "Can I see your latest projects?",
-  "How can I contact you?",
-  "What technologies do you specialize in?",
-];
+// const faqs = [
+//   "What services do you offer?",
+//   "Can I see your latest projects?",
+//   "How can I contact you?",
+//   "What technologies do you specialize in?",
+// ];
 
 
 const portfolioContext = `
