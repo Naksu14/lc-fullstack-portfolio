@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import PictureMe from '../assets/images/me.png';
 import {
     FaHtml5,
@@ -40,6 +41,8 @@ export default function About() {
         { name: 'Git', icon: FaGitAlt },
         { name: 'GitHub', icon: FaGithub },
         { name: 'REST APIs', icon: BiCodeCurly },
+        { name: 'WebSockets', icon: BiCodeCurly },
+        { name: 'TanStack Query', icon: BiCodeCurly },
         { name: 'Vercel', icon: SiVercel },
     ];
 
@@ -47,12 +50,12 @@ export default function About() {
         {
             label: 'Front-end (Presentation Layer)',
             key: 'front-end',
-            tech: ['HTML', 'CSS', 'Bootstrap', 'React', 'Tailwind CSS', 'JavaScript', 'TypeScript'],
+            tech: ['HTML', 'CSS', 'Bootstrap', 'React', 'Tailwind CSS', 'JavaScript', 'TypeScript', 'TanStack Query'],
         },
         {
             label: 'Back-end (Application Layer)',
             key: 'back-end',
-            tech: ['PHP', 'Python', 'Java', 'Node.js', 'NestJS', 'REST APIs'],
+            tech: ['PHP', 'Python', 'Java', 'Node.js', 'NestJS', 'REST APIs', 'WebSockets'],
         },
         {
             label: 'Database Layer',
@@ -67,8 +70,19 @@ export default function About() {
     ];
 
     return (
-        <section className="about-hero flex flex-col justify-center items-center min-h-screen">
-            <div className="about-inner w-full flex justify-center items-center max-w-6xl mx-auto">
+        <motion.section
+            className="about-hero flex flex-col justify-center items-center min-h-screen"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.75, ease: 'easeOut' }}
+        >
+            <motion.div
+                className="about-inner w-full flex justify-center items-center max-w-6xl mx-auto"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.7, ease: 'easeOut' }}
+            >
                 <div className="about-left">
                     <div className="about-avatar-ring">
                         <img
@@ -91,9 +105,14 @@ export default function About() {
                         " Build with purpose; Scale with precision."
                     </p>
                 </div>
-            </div>
+            </motion.div>
 
-            <div className="tech-stack">
+            <motion.div
+                className="tech-stack"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.7, ease: 'easeOut' }}
+            >
                 <div className="tech-stack-inner">
                     {[...techStack, ...techStack].map((tech, index) => {
                         const Icon = tech.icon;
@@ -105,9 +124,14 @@ export default function About() {
                         );
                     })}
                 </div>
-            </div>
+            </motion.div>
 
-            <div className='w-full max-w-6xl'>
+            <motion.div
+                className='w-full max-w-6xl'
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.75, ease: 'easeOut' }}
+            >
                 <div className="about-ibuild flex items-center gap-3 mt-12 text-left">
                     <span className="hero-location-line" />
                     <span className="hero-location-text font-bold">WHAT I BUILD</span>
@@ -132,7 +156,7 @@ export default function About() {
                         </div>
                     ))}
                 </div>
-            </div>
-        </section>
+            </motion.div>
+        </motion.section>
     );
 }

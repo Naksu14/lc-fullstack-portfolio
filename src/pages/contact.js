@@ -1,10 +1,22 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { FaPhoneAlt, FaEnvelope, FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 
 export default function Contact() {
     return (
-        <section className="contact-hero min-h-screen px-6 py-20 flex flex-col lg:flex-row items-center justify-center gap-12">
-            <div className="w-full max-w-xl text-left space-y-6">
+        <motion.section
+            className="contact-hero min-h-screen px-6 py-20 flex flex-col lg:flex-row items-center justify-center gap-12"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.75, ease: 'easeOut' }}
+        >
+            <motion.div
+                className="w-full max-w-xl text-left space-y-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.12, duration: 0.7, ease: 'easeOut' }}
+            >
                     <p className="text-xs tracking-[0.25em] uppercase text-indigo-300">Get in touch</p>
                     <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
                         Let&apos;s build something <span className="text-indigo-400">exceptional</span> together.
@@ -75,13 +87,16 @@ export default function Contact() {
                             </a>
                         </div>
                         <div className="flex gap-4 pt-4 text-xs text-slate-400 uppercase tracking-[0.2em]">
-                            <span>Open to remote</span>
-                            <span className="opacity-40">•</span>
                             <span>Freelance &amp; full‑time</span>
                         </div>
                     </div>
-                </div>
-                <div className="relative w-full max-w-md">
+                </motion.div>
+                <motion.div
+                    className="relative w-full max-w-md"
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.75, ease: 'easeOut' }}
+                >
                     <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-indigo-500/40 via-purple-500/20 to-cyan-400/30 opacity-50 blur-xl" />
                     <form
                         className="relative rounded-2xl border border-slate-700/70 bg-[rgba(10,10,24,0.95)]/20 px-6 py-7 shadow-[0_24px_80px_rgba(15,23,42,0.9)] space-y-5"
@@ -139,8 +154,8 @@ export default function Contact() {
                             This form is for demo purposes — feel free to reach me directly via email for real projects.
                         </p>
                     </form>
-                </div>
+                </motion.div>
 
-        </section>
+        </motion.section>
     )
 }

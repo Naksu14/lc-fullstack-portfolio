@@ -3,3 +3,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* For Firefox */
+html, body {
+  scrollbar-width: none;
+}
+
+/* For IE/Edge Legacy */
+html, body {
+  -ms-overflow-style: none;
+}
